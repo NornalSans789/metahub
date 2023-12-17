@@ -1,21 +1,12 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/thanhdat4461/OrionMoblie/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Meta Hub (Update)", HidePremium = false, SaveConfig = false, ConfigFolder = "nil", IntroText = "Loading Hub..."})
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 local lp = Players.LocalPlayer
 local GetPlayer = Players:GetPlayers()
 local CoreGui = game:FindService("CoreGui")
-local displayName = player.DisplayName
-local userId = player.UserId
-local accountAge = player.AccountAge
-local gameName = game.Name
-local gameId = game.PlaceId
-local executor = identifyexecutor() or "unknown"
-local timestamp = os.date("%c")
-local Window = OrionLib:MakeWindow({Name = "Meta Hub (Update)", HidePremium = false, SaveConfig = false, ConfigFolder = "nil", IntroText = "Loading Hub..."})
 
-Gui_Version = "1.1.4"
-
-getgenv().ScriptInput = ""
+Gui_Version = "1.1.2"
 
 while LoopAll == true do
 wait(.1)
@@ -41,7 +32,6 @@ if v:IsA("") or v:IsA("Sky") or v:IsA("BlurEffect") or v:IsA("BloomEffect") or v
 v:Destroy()
 end
 end
-
 game.Lighting.Ambient = Color3.fromRGB(255, 255, 255)
 game.Lighting.Brightness = 1
 game.Lighting.ClockTime = 14
@@ -71,15 +61,6 @@ if obj:IsA("") or obj:IsA("Sky") or obj:IsA("BlurEffect") or obj:IsA("BloomEffec
 obj:Destroy()
 end
 end)
-end
-
-function KeybindNotifyJ()
-OrionLib:MakeNotification({
-        Name = "Meta Hub",
-        Content = "You need to press J to open or close this script",
-        Image = "rbxassetid://4483345998",
-        Time = 3
-})
 end
 
 function bucu()
@@ -115,6 +96,23 @@ local AboutSection = AboutTab:AddSection({
         Name = "About Section"
 })
 
+AboutTab:AddLabel("Version: "..Gui_Version)
+
+AboutTab:AddButton({
+        Name = "Rejoin",
+        Callback = function()
+        game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+          end    
+})
+
+AboutTab:AddButton({
+        Name = "Server Small",
+        Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NornalSans789/metascript/main/serversmall"))()
+                      print("Join Server Small...")
+          end    
+})
+
 AboutTab:AddButton({
         Name = "Remove Fog",
         Callback = function()
@@ -123,25 +121,12 @@ AboutTab:AddButton({
           end    
 })
 
-AboutTab:AddLabel("Your Display Name: "displayName)
-AboutTab:AddLabel("Version: "..Gui_Version)
-AboutTab:AddLabel("Timestamp: "..timestamp)
-AboutTab:AddLabel("Your ID: "userId)
-AboutTab:AddLabel("Your Executor: "executor)
-AboutTab:AddLabel("Game ID: "gameId)
-AboutTab:AddLabel("Game Name: "gameName)
-AboutTab:AddLabel("Account Age: "accountAge)
-
 local ChangelogSection = AboutTab:AddSection({
         Name = "Changelogs Section"
 })
 
 AboutTab:AddLabel("[+] Added some toggle buttons to the script")
-AboutTab:AddLabel("[+] Added some information to the script")
 AboutTab:AddLabel("[+] Rewritten the code to fix some errors")
-AboutTab:AddLabel("[+] Added a new tab is the new Executor tab")
-AboutTab:AddLabel("and this tab has the function of loading scripts")
-AboutTab:AddLabel("without using your Executor")
 
 local MainTab = Window:MakeTab({
         Name = "Main",
@@ -381,14 +366,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifv
 })
 
 MainTab:AddButton({
-        Name = "Fps Booster",
-        Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/CasperFlyModz/discord.gg-rips/main/FPSBooster.lua"))()
-                      print("Active!")
-          end    
-})
-
-MainTab:AddButton({
         Name = "AntiFall (All Obby)",
         Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/AntiFall/main/Script"))()
@@ -416,34 +393,6 @@ MainTab:AddButton({
         Name = "Wall Climbing",
         Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/obf_E872F3ky4888TSVdj6Adgi1hSLtM038AyxVpTVw07QA3QUDcI3sxmuD869hYR4id.lua.txt"))()
-                      print("Active!")
-          end    
-})
-
-local ExecutorTab = Window:MakeTab({
-        Name = "Executors",
-        Icon = "rbxassetid://4483345998",
-        PremiumOnly = false
-})
-
-local ExecutorSection = ExecutorTab:AddSection({
-        Name = "Executor Section"
-})
-
-ExecutorTab:AddTextbox({
-        Name = "Script Here:",
-        Default = "",
-        TextDisappear = false,
-        Callback = function(input)
-        getgenv().ScriptInput = input
-                print(input)
-        end          
-})
-
-ExecutorTab:AddButton({
-        Name = "Load Script",
-        Callback = function()
-tostring("getgenv().ScriptInput")
                       print("Active!")
           end    
 })
@@ -518,18 +467,8 @@ ScriptTab:AddButton({
         Name = "Stay In The Light",
         Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/InfinityMercury/Scripts/main/StayInTheLight/loader.lua",true))()
-KeybindNotifyJ()
                       print("Script Active!")
           end    
-})
-
-ScriptTab:AddBind({
-	Name = "KeyBind J",
-	Default = Enum.KeyCode.J,
-	Hold = false,
-	Callback = function()
-		print("Press J")
-	end    
 })
 
 local BBTab = Window:MakeTab({
@@ -617,57 +556,17 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BloxFruits/ma
 })
 
 BFTab:AddButton({
-        Name = "Master Hub",
+        Name = "Apple Hub",
         Callback = function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/onepicesenpai/onepicesenpai/main/onichanokaka'))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ImTienNguyenZ/AppleHub/main/LoaderBF"))()
                       print("Script Active!")
           end    
 })
 
 BFTab:AddButton({
-        Name = "MTriet Hub",
+        Name = "Banana Hub",
         Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Minhtriettt/Free-Script/main/MTriet-Hub.lua"))()
-                      print("Script Active!")
-          end    
-})
-
-BFTab:AddButton({
-        Name = "Hoho Hub",
-        Callback = function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
-                      print("Script Active!")
-          end    
-})
-
-BFTab:AddButton({
-        Name = "Satoru Hub",
-        Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/SatoruHub/Main-Script/main/Satoru-Hub"))()
-                      print("Script Active!")
-          end    
-})
-
-BFTab:AddButton({
-        Name = "Fai Fao Hub",
-        Callback = function()
-loadstring(game:HttpGet"https://raw.githubusercontent.com/PNguyen0199/Script/main/Fai-Fao-Ver2.lua")()
-                      print("Script Active!")
-          end    
-})
-
-BFTab:AddButton({
-        Name = "Domadic Hub",
-        Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Domadicoof/Domadicoof/main/Domadichub/NottoGay/Start.ranscript"))()
-                      print("Script Active!")
-          end    
-})
-
-BFTab:AddButton({
-        Name = "Annie Hub",
-        Callback = function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/1st-Mars/Annie/main/1st.lua'))()
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b2169cf53bc6104dabe8e19562e5cc2.lua"))()
                       print("Script Active!")
           end    
 })
@@ -683,31 +582,3 @@ local CreditOwnerSection = CreditTab:AddSection({
 })
 
 CreditTab:AddLabel("By @MetaHub789(Youtube)")
-
-local CreditHelperSection = CreditTab:AddSection({
-        Name = "Script Helpers"
-})
-
-CreditTab:AddLabel("By @SansYT789(Youtube)")
-CreditTab:AddLabel("By @RoyRedRedVN(Youtube)")
-
-local OtherSection = CreditTab:AddSection({
-        Name = "Other Section"
-})
-
-CreditTab:AddButton({
-        Name = "Rejoin",
-        Callback = function()
-        game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
-          end    
-})
-
-CreditTab:AddButton({
-        Name = "Server Small",
-        Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/NornalSans789/metascript/main/serversmall"))()
-                      print("Join Server Small...")
-          end    
-})
-
-OrionLib:Init()
