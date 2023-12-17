@@ -1,0 +1,713 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/thanhdat4461/OrionMoblie/main/source')))()
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local lp = Players.LocalPlayer
+local GetPlayer = Players:GetPlayers()
+local CoreGui = game:FindService("CoreGui")
+local displayName = player.DisplayName
+local userId = player.UserId
+local accountAge = player.AccountAge
+local gameName = game.Name
+local gameId = game.PlaceId
+local executor = identifyexecutor() or "unknown"
+local timestamp = os.date("%c")
+local Window = OrionLib:MakeWindow({Name = "Meta Hub (Update)", HidePremium = false, SaveConfig = false, ConfigFolder = "nil", IntroText = "Loading Hub..."})
+
+Gui_Version = "1.1.4"
+
+getgenv().ScriptInput = ""
+
+while LoopAll == true do
+wait(.1)
+player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeed
+player.Character.Humanoid.JumpPower = getgenv().JumpBoost
+end
+
+while LoopWalkSpeed == true do
+wait(.1)
+player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeed
+end
+
+while LoopJumpBoost == true do
+wait(.1)
+player.Character.Humanoid.JumpPower = getgenv().JumpBoost
+end
+
+function skibidi()
+repeat task.wait() until game:IsLoaded()
+wait(5) -- extra load to ensure the script is working
+for i,v in pairs(game.Lighting:GetChildren()) do
+if v:IsA("") or v:IsA("Sky") or v:IsA("BlurEffect") or v:IsA("BloomEffect") or v:IsA("SunRaysEffect") then
+v:Destroy()
+end
+end
+
+game.Lighting.Ambient = Color3.fromRGB(255, 255, 255)
+game.Lighting.Brightness = 1
+game.Lighting.ClockTime = 14
+game.Lighting.ColorShift_Bottom = Color3.fromRGB(255, 255, 255)
+game.Lighting.ColorShift_Top = Color3.fromRGB(255, 255, 255)
+game.Lighting.ExposureCompensation = 0
+game.Lighting.FogColor = Color3.fromRGB(255, 255, 255)
+game.Lighting.FogEnd = 999999999
+game.Lighting.GeographicLatitude = 41.733
+game.Lighting.OutdoorAmbient = Color3.fromRGB(255, 255, 255)
+game.Lighting.GlobalShadows = true
+game.Lighting.Changed:Connect(function()
+game.Lighting.Ambient = Color3.fromRGB(255, 255, 255)
+game.Lighting.Brightness = 1
+game.Lighting.ClockTime = 14
+game.Lighting.ColorShift_Bottom = Color3.fromRGB(255, 255, 255)
+game.Lighting.ColorShift_Top = Color3.fromRGB(255, 255, 255)
+game.Lighting.ExposureCompensation = 0
+game.Lighting.FogColor = Color3.fromRGB(255, 255, 255)
+game.Lighting.FogEnd = 999999999
+game.Lighting.GeographicLatitude = 41.733
+game.Lighting.OutdoorAmbient = Color3.fromRGB(255, 255, 255)
+game.Lighting.GlobalShadows = true
+end)
+game.Lighting.DescendantAdded:Connect(function(obj)
+if obj:IsA("") or obj:IsA("Sky") or obj:IsA("BlurEffect") or obj:IsA("BloomEffect") or obj:IsA("SunRaysEffect") then
+obj:Destroy()
+end
+end)
+end
+
+function KeybindNotifyJ()
+OrionLib:MakeNotification({
+        Name = "Meta Hub",
+        Content = "You need to press J to open or close this script",
+        Image = "rbxassetid://4483345998",
+        Time = 3
+})
+end
+
+function bucu()
+wait(.1)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/sirapobsriumang/Auto-Parry/main/Real"))()
+wait(.2)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/sirapobsriumang/Auto-Spam-Parry/main/Bladeballnew"))()
+end
+
+function LinkCopied()
+OrionLib:MakeNotification({
+        Name = "Meta Hub",
+        Content = "The link has been copied",
+        Image = "rbxassetid://4483345998",
+        Time = 4
+})
+end
+
+OrionLib:MakeNotification({
+        Name = "Welcome to script:)",
+        Content = "Please enjoy my script, my friends:)",
+        Image = "rbxassetid://4483345998",
+        Time = 3
+})
+
+local AboutTab = Window:MakeTab({
+        Name = "About",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+})
+
+local AboutSection = AboutTab:AddSection({
+        Name = "About Section"
+})
+
+AboutTab:AddButton({
+        Name = "Remove Fog",
+        Callback = function()
+        skibidi()
+                      print("Active!")
+          end    
+})
+
+AboutTab:AddLabel("Your Display Name: "displayName)
+AboutTab:AddLabel("Version: "..Gui_Version)
+AboutTab:AddLabel("Timestamp: "..timestamp)
+AboutTab:AddLabel("Your ID: "userId)
+AboutTab:AddLabel("Your Executor: "executor)
+AboutTab:AddLabel("Game ID: "gameId)
+AboutTab:AddLabel("Game Name: "gameName)
+AboutTab:AddLabel("Account Age: "accountAge)
+
+local ChangelogSection = AboutTab:AddSection({
+        Name = "Changelogs Section"
+})
+
+AboutTab:AddLabel("[+] Added some toggle buttons to the script")
+AboutTab:AddLabel("[+] Added some information to the script")
+AboutTab:AddLabel("[+] Rewritten the code to fix some errors")
+AboutTab:AddLabel("[+] Added a new tab is the new Executor tab")
+AboutTab:AddLabel("and this tab has the function of loading scripts")
+AboutTab:AddLabel("without using your Executor")
+
+local MainTab = Window:MakeTab({
+        Name = "Main",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+})
+
+local MainPlayerSection = MainTab:AddSection({
+        Name = "Player Main Section"
+})
+
+MainTab:AddLabel("For Input")
+
+MainTab:AddTextbox({
+        Name = "WalkSpeed (Default = 16)",
+        Default = "",
+        TextDisappear = true,
+        Callback = function(a)
+        getgenv().WalkSpeed = a
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = a
+                print(a)
+        end          
+})
+
+MainTab:AddTextbox({
+        Name = "Jump Height (Default = 50)",
+        Default = "",
+        TextDisappear = true,
+        Callback = function(a)
+        getgenv().JumpBoost = a
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = a
+                print(a)
+        end          
+})
+
+MainTab:AddTextbox({
+        Name = "Gravity (Default = 150)",
+        Default = "",
+        TextDisappear = true,
+        Callback = function(a)
+        getgenv().Gravity = a
+        game.Workspace.Gravity = a
+                print(a)
+        end          
+})
+
+MainTab:AddTextbox({
+        Name = "Fov (Default = 70)",
+        Default = "",
+        TextDisappear = true,
+        Callback = function(a)
+        getgenv().Fov = a
+        game.Workspace.CurrentCamera.FieldOfView = a
+                print(a)
+        end          
+})
+
+MainTab:AddLabel("For Reset Button")
+
+MainTab:AddButton({
+        Name = "Reset All",
+        Callback = function()
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+game.Workspace.Gravity = 150
+game.Workspace.CurrentCamera.FieldOfView = 70
+                      print("Active!")
+          end    
+})
+
+MainTab:AddButton({
+        Name = "Reset WalkSpeed",
+        Callback = function()
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+                      print("Active!")
+          end    
+})
+
+MainTab:AddButton({
+        Name = "Reset Jump Height",
+        Callback = function()
+game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+                      print("Active!")
+          end    
+})
+
+MainTab:AddButton({
+        Name = "Reset Gravity",
+        Callback = function()
+game.Workspace.Gravity = 150
+                      print("Active!")
+          end    
+})
+
+MainTab:AddButton({
+        Name = "Reset Fov",
+        Callback = function()
+game.Workspace.CurrentCamera.FieldOfView = 70
+                      print("Active!")
+          end    
+})
+
+MainTab:AddLabel("For Loop Toggle")
+
+MainTab:AddToggle({
+	Name = "Loop WalkSpeed/JumpBoost",
+	Default = false,
+	Callback = function(loop)
+getgenv().LoopAll = loop
+	end    
+})
+
+MainTab:AddToggle({
+	Name = "Loop WalkSpeed",
+	Default = false,
+	Callback = function(loop)
+getgenv().LoopWalkSpeed = loop
+	end    
+})
+
+MainTab:AddToggle({
+	Name = "Loop JumpBoost",
+	Default = false,
+	Callback = function(loop)
+getgenv().LoopJumpBoost = loop
+	end    
+})
+
+local MainScriptSection = MainTab:AddSection({
+        Name = "Toggle Main Section"
+})
+
+MainTab:AddToggle({
+	Name = "Inf Jump",
+	Default = false,
+	Callback = function(jump)
+getgenv().InfJ = jump
+game:GetService("UserInputService").JumpRequest:connect(function()
+    if InfJ == true then
+        game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping")
+    end
+end)
+	end    
+})
+
+MainTab:AddToggle({
+	Name = "Noclip",
+	Default = false,
+	Callback = function(noclip)
+getgenv().Noclip = noclip
+game:GetService("RunService").Heartbeat:Connect(function()
+    if Noclip == true then 
+       game:GetService("RunService").Stepped:wait()
+       game.Players.LocalPlayer.Character.Head.CanCollide = false
+       game.Players.LocalPlayer.Character.Torso.CanCollide = false
+    else
+       game:GetService("RunService").Stepped:wait()
+       game.Players.LocalPlayer.Character.Head.CanCollide = true
+       game.Players.LocalPlayer.Character.Torso.CanCollide = true
+    end
+end)
+	end    
+})
+
+MainTab:AddSlider({
+	Name = "Hitbox Size",
+	Min = 20,
+	Max = 500,
+	Default = 5,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Size",
+	Callback = function(size)
+	_G.HeadSize = size
+	end    
+})
+
+MainTab:AddToggle({
+	Name = "Hitbox",
+	Default = false,
+	Callback = function(hit)
+getgenv().Hitbox = hit
+
+game:GetService('RunService').RenderStepped:connect(function()
+if Hitbox == true then
+for i,v in next, game:GetService('Players'):GetPlayers() do
+if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+while Hitbox == true do
+wait(.1)
+v.Character.HumanoidRootPart.Size = Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)
+v.Character.HumanoidRootPart.Transparency = 0.7
+v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Really blue")
+v.Character.HumanoidRootPart.Material = "Neon"
+v.Character.HumanoidRootPart.CanCollide = false
+end
+end
+end
+end
+end)
+	end    
+})
+
+local MainScriptSection = MainTab:AddSection({
+        Name = "Script Main Section"
+})
+
+MainTab:AddButton({
+        Name = "Fly Gui V3",
+        Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
+                      print("Active!")
+          end    
+})
+
+MainTab:AddButton({
+        Name = "Perm ShiftLock",
+        Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/MiniNoobie/ShiftLockx/main/Shiftlock-MiniNoobie",true))()
+                      print("Active!")
+          end    
+})
+
+MainTab:AddButton({
+        Name = "Inf Field",
+        Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+                      print("Active!")
+          end    
+})
+
+MainTab:AddButton({
+        Name = "Keyboard",
+        Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+                      print("Active!")
+          end    
+})
+
+MainTab:AddButton({
+        Name = "Fps Booster",
+        Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/CasperFlyModz/discord.gg-rips/main/FPSBooster.lua"))()
+                      print("Active!")
+          end    
+})
+
+MainTab:AddButton({
+        Name = "AntiFall (All Obby)",
+        Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/AntiFall/main/Script"))()
+                      print("Active!")
+          end    
+})
+
+MainTab:AddButton({
+        Name = "R15 To R6",
+        Callback = function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/Imagnir/r6_anims_for_r15/main/r6_anims.lua'),true))()
+                      print("Active!")
+          end    
+})
+
+MainTab:AddButton({
+        Name = "Sonic Saitama (Need R6)",
+        Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/obf_11l7Y131YqJjZ31QmV5L8pI23V02b3191sEg26E75472Wl78Vi8870jRv5txZyL1.lua.txt"))()
+                      print("Active!")
+          end    
+})
+
+MainTab:AddButton({
+        Name = "Wall Climbing",
+        Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/obf_E872F3ky4888TSVdj6Adgi1hSLtM038AyxVpTVw07QA3QUDcI3sxmuD869hYR4id.lua.txt"))()
+                      print("Active!")
+          end    
+})
+
+local ExecutorTab = Window:MakeTab({
+        Name = "Executors",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+})
+
+local ExecutorSection = ExecutorTab:AddSection({
+        Name = "Executor Section"
+})
+
+ExecutorTab:AddTextbox({
+        Name = "Script Here:",
+        Default = "",
+        TextDisappear = false,
+        Callback = function(input)
+        getgenv().ScriptInput = input
+                print(input)
+        end          
+})
+
+ExecutorTab:AddButton({
+        Name = "Load Script",
+        Callback = function()
+tostring("getgenv().ScriptInput")
+                      print("Active!")
+          end    
+})
+
+local ScriptTab = Window:MakeTab({
+        Name = "Script Hub",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+})
+
+local ScriptSection = ScriptTab:AddSection({
+        Name = "Script Hub Section"
+})
+
+ScriptTab:AddButton({
+        Name = "Monday Morning Misery",
+        Callback = function()
+loadstring(game:HttpGet("https://stavratum.github.io/" .. game.PlaceId))()
+                      print("Script Active!")
+          end    
+})
+
+ScriptTab:AddButton({
+        Name = "Hide And Seek",
+        Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/Hide%20And%20Seek%20Extreme'))()
+                      print("Script Active!")
+          end    
+})
+
+ScriptTab:AddButton({
+        Name = "Doors (Blacking And Bob Hub)",
+        Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/KINGHUB01/BlackKing-obf/main/Doors%20Blackking%20And%20BobHub"))()
+                      print("Script Active!")
+          end    
+})
+
+ScriptTab:AddButton({
+        Name = "Pls Donate",
+        Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/tzechco/roblox-scripts/main/PLS%20DONATE/autofarm.lua'))()
+                      print("Script Active!")
+          end    
+})
+
+ScriptTab:AddButton({
+        Name = "Evade",
+        Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Hetcuunoi/Evade-Gen-1/main/BetaHub.Evade%20Gen%201.lua.txt'))()
+                      print("Script Active!")
+          end    
+})
+
+ScriptTab:AddButton({
+        Name = "Pet Simulator 99",
+        Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/PetSimulator99/main/redz9999.lua"))()
+                      print("Script Active!")
+          end    
+})
+
+ScriptTab:AddButton({
+        Name = "Bathroom Battle",
+        Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ToraIsMe/ToraIsMe/main/0BathroomBattle'))()
+                      print("Script Active!")
+          end    
+})
+
+ScriptTab:AddButton({
+        Name = "Stay In The Light",
+        Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/InfinityMercury/Scripts/main/StayInTheLight/loader.lua",true))()
+KeybindNotifyJ()
+                      print("Script Active!")
+          end    
+})
+
+ScriptTab:AddBind({
+	Name = "KeyBind J",
+	Default = Enum.KeyCode.J,
+	Hold = false,
+	Callback = function()
+		print("Press J")
+	end    
+})
+
+local BBTab = Window:MakeTab({
+        Name = "Blade Ball Script",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+})
+
+local BBSection = BBTab:AddSection({
+        Name = "Script Section"
+})
+
+BBTab:AddButton({
+        Name = "Bedol Hub",
+        Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/nqxlOfc/Loaders/main/Blade_Ball.lua'))()
+                      print("Script Active!")
+          end    
+})
+
+BBTab:AddButton({
+        Name = "REDz Hub",
+        Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BladeBall/main/eng"))()
+                      print("Script Active!")
+          end    
+})
+
+BBTab:AddButton({
+        Name = "Nexus Hub",
+        Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/s-o-a-b/nexus/main/loadstring"))()
+                      print("Script Active!")
+          end    
+})
+
+BBTab:AddButton({
+        Name = "Auto Parry (Detect Spam)",
+        Callback = function()
+        bucu()
+                      print("Script Active!")
+          end    
+})
+
+BBTab:AddButton({
+        Name = "Auto Parry V4 (No Menu)",
+        Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Hosvile/Refinement/main/MC%3ABlade%20Ball%20Parry%20V4.0.0",true))()
+                      print("Script Active!")
+          end    
+})
+
+BBTab:AddButton({
+        Name = "Manual Spam",
+        Callback = function()
+loadstring(game:HttpGet('https://pastebin.com/raw/KB4xQe4j'))()
+                      print("Script Active!")
+          end    
+})
+
+BBTab:AddButton({
+        Name = "Hold Block To Spam",
+        Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Hosvile/Refinement/main/MC%3ABlade%20Ball%20Spam",true))()
+                      print("Script Active!")
+          end    
+})
+
+local BFTab = Window:MakeTab({
+        Name = "Blox Fruit Script",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+})
+
+local BFSection = BFTab:AddSection({
+        Name = "Script Section"
+})
+
+BFTab:AddButton({
+        Name = "REDz Hub",
+        Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BloxFruits/main/redz9999"))()
+                      print("Script Active!")
+          end    
+})
+
+BFTab:AddButton({
+        Name = "Master Hub",
+        Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/onepicesenpai/onepicesenpai/main/onichanokaka'))()
+                      print("Script Active!")
+          end    
+})
+
+BFTab:AddButton({
+        Name = "MTriet Hub",
+        Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Minhtriettt/Free-Script/main/MTriet-Hub.lua"))()
+                      print("Script Active!")
+          end    
+})
+
+BFTab:AddButton({
+        Name = "Hoho Hub",
+        Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
+                      print("Script Active!")
+          end    
+})
+
+BFTab:AddButton({
+        Name = "Satoru Hub",
+        Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/SatoruHub/Main-Script/main/Satoru-Hub"))()
+                      print("Script Active!")
+          end    
+})
+
+BFTab:AddButton({
+        Name = "Fai Fao Hub",
+        Callback = function()
+loadstring(game:HttpGet"https://raw.githubusercontent.com/PNguyen0199/Script/main/Fai-Fao-Ver2.lua")()
+                      print("Script Active!")
+          end    
+})
+
+BFTab:AddButton({
+        Name = "Domadic Hub",
+        Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Domadicoof/Domadicoof/main/Domadichub/NottoGay/Start.ranscript"))()
+                      print("Script Active!")
+          end    
+})
+
+BFTab:AddButton({
+        Name = "Annie Hub",
+        Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/1st-Mars/Annie/main/1st.lua'))()
+                      print("Script Active!")
+          end    
+})
+
+local CreditTab = Window:MakeTab({
+        Name = "Credit",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+})
+
+local CreditOwnerSection = CreditTab:AddSection({
+        Name = "Script Owner"
+})
+
+CreditTab:AddLabel("By @MetaHub789(Youtube)")
+
+local CreditHelperSection = CreditTab:AddSection({
+        Name = "Script Helpers"
+})
+
+CreditTab:AddLabel("By @SansYT789(Youtube)")
+CreditTab:AddLabel("By @RoyRedRedVN(Youtube)")
+
+local OtherSection = CreditTab:AddSection({
+        Name = "Other Section"
+})
+
+CreditTab:AddButton({
+        Name = "Rejoin",
+        Callback = function()
+        game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+          end    
+})
+
+CreditTab:AddButton({
+        Name = "Server Small",
+        Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NornalSans789/metascript/main/serversmall"))()
+                      print("Join Server Small...")
+          end    
+})
+
+OrionLib:Init()
