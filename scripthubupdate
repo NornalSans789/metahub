@@ -1,5 +1,5 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/thanhdat4461/OrionMoblie/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Meta Hub (Update)", HidePremium = false, SaveConfig = false, ConfigFolder = "nil", IntroText = "Loading Hub..."})
+local Window = OrionLib:MakeWindow({Name = "Meta Hub", HidePremium = false, SaveConfig = false, ConfigFolder = "nil", IntroText = "Loading Hub..."})
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 local lp = Players.LocalPlayer
@@ -8,25 +8,9 @@ local CoreGui = game:FindService("CoreGui")
 
 Gui_Version = "1.1.3"
 
-while LoopAll == true do
-wait(.1)
-player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeed
-player.Character.Humanoid.JumpPower = getgenv().JumpBoost
-end
-
-while LoopWalkSpeed == true do
-wait(.1)
-player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeed
-end
-
-while LoopJumpBoost == true do
-wait(.1)
-player.Character.Humanoid.JumpPower = getgenv().JumpBoost
-end
-
 function skibidi()
 repeat task.wait() until game:IsLoaded()
-wait(5) -- extra load to ensure the script is working
+wait(5)
 for i,v in pairs(game.Lighting:GetChildren()) do
 if v:IsA("") or v:IsA("Sky") or v:IsA("BlurEffect") or v:IsA("BloomEffect") or v:IsA("SunRaysEffect") then
 v:Destroy()
@@ -64,9 +48,8 @@ end)
 end
 
 function bucu()
-wait(.1)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/sirapobsriumang/Auto-Parry/main/Real"))()
-wait(.2)
+wait(0.1)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/sirapobsriumang/Auto-Spam-Parry/main/Bladeballnew"))()
 end
 
@@ -74,7 +57,7 @@ function LinkCopied()
 OrionLib:MakeNotification({
         Name = "Meta Hub",
         Content = "The link has been copied",
-        Image = "rbxassetid://4483345998",
+        Image = "rbxassetid://7733764083",
         Time = 4
 })
 end
@@ -82,13 +65,13 @@ end
 OrionLib:MakeNotification({
         Name = "Welcome to script:)",
         Content = "Please enjoy my script, my friends:)",
-        Image = "rbxassetid://4483345998",
+        Image = "rbxassetid://7734053697",
         Time = 3
 })
 
 local AboutTab = Window:MakeTab({
-        Name = "About",
-        Icon = "rbxassetid://4483345998",
+        Name = "Tab About",
+        Icon = "rbxassetid://7733964719",
         PremiumOnly = false
 })
 
@@ -97,6 +80,7 @@ local AboutSection = AboutTab:AddSection({
 })
 
 AboutTab:AddLabel("Version: "..Gui_Version)
+AboutTab:AddLabel("Status: Bad")
 
 AboutTab:AddButton({
         Name = "Rejoin",
@@ -127,10 +111,11 @@ local ChangelogSection = AboutTab:AddSection({
 
 AboutTab:AddLabel("[+] Added some toggle buttons to the script")
 AboutTab:AddLabel("[+] Rewritten the code to fix some errors")
+AboutTab:AddLabel("[+] Fix the errors appear again!!!")
 
 local MainTab = Window:MakeTab({
-        Name = "Main",
-        Icon = "rbxassetid://4483345998",
+        Name = "Tab Main",
+        Icon = "rbxassetid://7733960981",
         PremiumOnly = false
 })
 
@@ -236,6 +221,14 @@ MainTab:AddToggle({
 	Default = false,
 	Callback = function(loop)
 getgenv().LoopAll = loop
+
+if LoopAll == true then
+while true do
+wait(.1)
+player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeed
+player.Character.Humanoid.JumpPower = getgenv().JumpBoost
+end
+end
 	end    
 })
 
@@ -244,6 +237,13 @@ MainTab:AddToggle({
 	Default = false,
 	Callback = function(loop)
 getgenv().LoopWalkSpeed = loop
+
+if LoopWalkSpeed == true then
+while true do
+wait(.1)
+player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeed
+end
+end
 	end    
 })
 
@@ -252,6 +252,13 @@ MainTab:AddToggle({
 	Default = false,
 	Callback = function(loop)
 getgenv().LoopJumpBoost = loop
+
+if LoopJumpBoost == true then
+while true do
+wait(.1)
+player.Character.Humanoid.JumpPower = getgenv().JumpBoost
+end
+end
 	end    
 })
 
@@ -324,11 +331,6 @@ v.Character.HumanoidRootPart.CanCollide = false
 end
 end
 end
-else
-while Hitbox == false do
-wait(.1)
-v.Character.HumanoidRootPart:Destroy
-end
 end
 end)
 	end    
@@ -371,7 +373,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifv
 })
 
 MainTab:AddButton({
-        Name = "AntiFall (All Obby)",
+        Name = "AntiFall",
         Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/AntiFall/main/Script"))()
                       print("Active!")
@@ -395,7 +397,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/obf_11l
 })
 
 MainTab:AddButton({
-        Name = "Wall Climbing",
+        Name = "Wall Climbing (Gui)",
         Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/obf_E872F3ky4888TSVdj6Adgi1hSLtM038AyxVpTVw07QA3QUDcI3sxmuD869hYR4id.lua.txt"))()
                       print("Active!")
@@ -403,8 +405,8 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/obf_E87
 })
 
 local ScriptTab = Window:MakeTab({
-        Name = "Script Hub",
-        Icon = "rbxassetid://4483345998",
+        Name = "Tab Script Hub",
+        Icon = "rbxassetid://7734000129",
         PremiumOnly = false
 })
 
@@ -485,8 +487,8 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/InfinityMercury/Scrip
 })
 
 local BBTab = Window:MakeTab({
-        Name = "Blade Ball Script",
-        Icon = "rbxassetid://4483345998",
+        Name = "Tab Blade Ball",
+        Icon = "rbxassetid://7734056608",
         PremiumOnly = false
 })
 
@@ -551,8 +553,8 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Hosvile/Refinement/ma
 })
 
 local BFTab = Window:MakeTab({
-        Name = "Blox Fruit Script",
-        Icon = "rbxassetid://4483345998",
+        Name = "Tab Blox Fruit",
+        Icon = "rbxassetid://7743869054",
         PremiumOnly = false
 })
 
@@ -571,14 +573,14 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BloxFruits/ma
 BFTab:AddButton({
         Name = "Night Hub",
         Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/NIGHTHUBONTOP/Main/main/LoaderScript.lua"))()```
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NIGHTHUBONTOP/Main/main/LoaderScript.lua"))()
                       print("Script Active!")
           end    
 })
 
 local CreditTab = Window:MakeTab({
-        Name = "Credit",
-        Icon = "rbxassetid://4483345998",
+        Name = "Tab Credit",
+        Icon = "rbxassetid://7733964370",
         PremiumOnly = false
 })
 
@@ -587,3 +589,5 @@ local CreditOwnerSection = CreditTab:AddSection({
 })
 
 CreditTab:AddLabel("By @MetaHub789(Youtube)")
+
+OrionLib:Init()
